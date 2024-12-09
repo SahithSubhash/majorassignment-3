@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Network Visualization</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #controls {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            z-index: 10;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        #visualization {
+            margin-top: 60px;
+        }
+
+        svg {
+            border: 1px solid lightgray;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .tooltip {
+            position: absolute;
+            font-size: 12px;
+            color: #333;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 5px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <label for="chargeStrength">Charge Strength:</label>
+        <input type="range" id="chargeStrength" min="-200" max="0" value="-50">
+        
+        <label for="collisionRadius">Collision Radius:</label>
+        <input type="range" id="collisionRadius" min="-20" max="20" value="0">
+        
+        <label for="linkStrength">Link Strength:</label>
+        <input type="range" id="linkStrength" min="0.1" max="1" step="0.05" value="0.1">
+    </div>
+
+    <div id="visualization">
+        <svg viewBox="0 0 800 600"></svg>
+    </div>
+
+    <script src="network.js"></script>
+</body>
+</html>
